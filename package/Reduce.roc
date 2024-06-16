@@ -59,8 +59,9 @@ expect
 ## Reduce a dict to a single value of the same type as the key type
 dictKeys : Dict k v, (k, k -> k) -> Result k [DictWasEmpty]
 dictKeys = \d, f ->
-    when Dict.keys d is
-        [x, .. as xs] -> List.walk xs x f |> Ok
+    fk = \acc, (k, _) -> f acc k
+    when Dict.toList d is
+        [(k, _), .. as ks] -> List.walk ks k fk |> Ok
         [] -> Err DictWasEmpty
 
 ## More descriptive name for unqualified use
@@ -74,8 +75,9 @@ expect
 ## Reduce a dict to a single value of the same type as the value type
 dictValues : Dict k v, (v, v -> v) -> Result v [DictWasEmpty]
 dictValues = \d, f ->
-    when Dict.values d is
-        [x, .. as xs] -> List.walk xs x f |> Ok
+    fv = \acc, (_, v) -> f acc v
+    when Dict.toList d is
+        [(_, v), .. as vs] -> List.walk vs v fv |> Ok
         [] -> Err DictWasEmpty
 
 ## More descriptive name for unqualified use
