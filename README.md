@@ -11,10 +11,10 @@ Functions are available for: List, Dict, and Set, and include left and right var
 Two names are provided for each function. A function named for qualified use, and a function named for unqualified use. For example:
 
 ```roc
-import red.Reduce exposing [reduceListLeft]
+import red.Reduce exposing [reduce_list_left]
 
-a = Reduce.listLeft [1, 2, 3] Num.add
-b = reduceListLeft [1, 2, 3] Num.add
+a = Reduce.list_left([1, 2, 3], Num.add)
+b = reduce_list_left([1, 2, 3], Num.add)
 ```
 
 [roc_badge]: https://img.shields.io/endpoint?url=https%3A%2F%2Fpastebin.com%2Fraw%2FcFzuCCd7
