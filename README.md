@@ -6,7 +6,7 @@
 
 A small package containing a collection of reduce functions for roc data structures. Reduce behaves like `walk`, but doesn't require an accumulator argument, instead simply using the first element in the structure as the accumulator. 
 
-Functions are available for: List, Dict, and Set, and include left and right varients for lists, and key, value, and (key, value) versions for Dict.
+Functions are available for: List, Dict, and Set, and include left and right variants for lists, and key, value, and (key, value) versions for Dict.
 
 Two names are provided for each function. A function named for qualified use, and a function named for unqualified use. For example:
 
